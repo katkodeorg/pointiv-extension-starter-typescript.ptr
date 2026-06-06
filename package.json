@@ -1,0 +1,19 @@
+{
+  "name": "hello-world-extension",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "bundle": "node esbuild.js",
+    "build": "node esbuild.js && extism-js dist/index.js -i src/index.d.ts -o extension.wasm",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@katkode/pointiv-extension-sdk": "^0.3.0"
+  },
+  "devDependencies": {
+    "@extism/js-pdk": "^1.1.1",
+    "esbuild": "^0.25.5",
+    "typescript": "^5.8.3"
+  }
+}

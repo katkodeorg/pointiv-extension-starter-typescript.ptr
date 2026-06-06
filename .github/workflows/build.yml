@@ -1,0 +1,46 @@
+name: Build WASM
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install extism-js
+        run: |
+          curl -O https://raw.githubusercontent.com/extism/js-pdk/main/install.sh
+          bash install.sh
+
+      - name: Install Binaryen
+        run: sudo apt-get update && sudo apt-get install -y binaryen
+
+      - name: Build
+        run: |
+          npm install
+          npm run build
+
+      - name: Print SHA-256
+        run: |
+          echo "SHA-256: $(sha256sum extension.wasm | awk '{print $1}')"
+          echo "Size: $(wc -c < extension.wasm) bytes"
+
+      - name: Commit updated extension.wasm
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "build: update extension.wasm [ci skip]"
+          file_pattern: extension.wasm
