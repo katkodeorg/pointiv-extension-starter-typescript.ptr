@@ -1,7 +1,7 @@
 {
   "name": "Hello World",
   "description": "Sample Pointiv extension in TypeScript/WASM. Greets you, tracks a run counter. Use as a starting point for your own extension.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "katkodeorg",
   "keywords": ["hello", "hello world", "greet", "greeting", "sample", "template"],
   "runtime": "wasm",
