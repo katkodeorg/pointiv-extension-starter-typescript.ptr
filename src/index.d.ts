@@ -1,5 +1,6 @@
 declare module "main" {
   export function execute(): I32;
+  export function render_tile(): I32;
 }
 
 declare module "extism:host" {

@@ -1,6 +1,6 @@
 {
   "name": "hello-world-extension",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -9,7 +9,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@katkode/pointiv-extension-sdk": "^0.3.1"
+    "@katkode/pointiv-extension-sdk": "^0.4.1"
   },
   "devDependencies": {
     "@extism/js-pdk": "^1.1.1",
